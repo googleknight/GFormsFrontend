@@ -13,7 +13,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    fetch('/forms', {
+    fetch('/forms/formNames', {
       method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=utf-8',
@@ -30,14 +30,13 @@ class Home extends Component {
       });
   }
 
-
   render() {
     const forms = this.state.data.map(form => (
       <div className="Home-Form-Container" key={rand.generate(5)}>
         <button
           className="Home-Form-button"
           type="button"
-          onClick={() => this.editForm(form.DISTINCT)}
+          onClick={() => this.props.submitForm(form.DISTINCT)}
         >{form.DISTINCT}
         </button>
         <p className="Home-Form-text">RESPONSES</p>

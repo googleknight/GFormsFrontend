@@ -105,7 +105,6 @@ class FormCreate extends Component {
     ))
 
   render() {
-    console.log(this.state);
     const renderme = this.generateComponent();
     return (
       <div className="FormCreate">

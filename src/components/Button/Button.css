@@ -1,0 +1,9 @@
+.Button-style{
+    border:2.2px black solid;
+    font-size: 1.1em;
+    font-weight:600;
+    padding:0.5em 2em 0.5em 2em;
+    box-sizing: border-box;
+    width: 10em;
+    border-radius: 14px;
+}

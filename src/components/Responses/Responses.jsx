@@ -16,7 +16,7 @@ class Responses extends Component {
   getResponses=responses => responses.map((response, index) =>
     (
       <p
-        className={index % 2 === 0 ? 'even' : 'odd'}
+        className={index % 2 === 0 ? 'Response-even' : 'Response-odd'}
         key={rand.generate(5)}
       >
         {response}

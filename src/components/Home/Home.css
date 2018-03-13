@@ -51,6 +51,7 @@
     font-size:13px;
     font-weight: 400;
     text-decoration: underline;
+    cursor: pointer;
 }
 .Home-body-heading{
     font-weight: bold;

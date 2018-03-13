@@ -1,7 +1,7 @@
 .Responses{
-    display:flex;
+    overflow-y: scroll;
+    display: flex;
     flex-direction: column;
-    height:100vh;
 }
 .Responses-header{
     background-color:#663bb7;
@@ -9,91 +9,73 @@
     box-sizing: border-box;
     padding:6vh 0 0 5vh;
     display: flex;
+    z-index: 0;    
     flex-direction: row;
 }
 .Responses-body{
     background-color:#eee8f7;
     box-sizing:border-box;
-    height:82vh;
+    height:200vh;
     padding:4vh;
     display:flex;
+    z-index: 1;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
 
 }
-.Responses-create-button{
-    border-radius: 50%;
-    font-size:24px;
-    height: 40px;
-    padding:0 12px 0 12px;
-    color:white;
-    background-color: #663bb7;
-}
+ 
 .Responses-Main-Box{
     box-shadow:0.5px solid black;
-    position: fixed;
+    position: absolute;
     display:flex;
+    top:10vh;
     flex-direction: column;
     width:60vw;
-    height:25vh;
-    position: relative;
-    bottom: 10vh;
+    z-index: 2;
     background-color: white;
     justify-content:space-around;
     box-sizing: border-box;
+    padding:2vh;
     margin:0;
+    
 }
+.Responses-title{
+    font-weight:600;
+    font-size: 28px;
+    box-sizing: border-box;
+}
+
+.Question-statement{
+    font-weight:550;
+    font-size: 22px;
+    margin:4vh 0 1.5vh 0;
+}
+
+.Question-heading-message{
+    font-weight:100;
+    font-size: 22px;
+    margin:0 0 1.5vh 0;
+}
+.Response-even{
+    background-color:#ede7f6;
+    padding:1vh;
+    width:100%;
+    box-sizing: border-box;
+}
+.Response-odd{
+    background-color:#faf9fe;
+    width:100%;
+    padding:1vh;
+    box-sizing: border-box;
+}
+
 .Responses-submit-button{
-    width:1vh;
-    align-self: flex-start;
-    margin-right:7.2vw;
+    align-self: flex-end;
+    margin:2vh;
     border: 0;
     color:#663bb7;
     font-size: 22px;
     font-weight: 600;
 }
-.Responses-form-input{
-    font-size: 22px;
-    font-weight: 500;
-    padding:10px;
-    border:0;
-    border-bottom: 1px solid grey;
-    width:20vw;
-    margin-left:2vw;
-}
-.Responses-button-container{
-    align-self: flex-end;
-    margin:2vh;
-}
-.Question{
-    background-color: white;
-    border:0.5px grey solid;
-    display:flex;
-   flex-direction: column;
-    width:60vw;
-    height:25vh;
-    justify-content: space-between;
-    padding:2vh 2vh 2vh 4vh;
-    box-sizing: border-box;
 
-}
-.Question-input-area{
-    display:flex;
-    justify-content: space-between;
-}
-
-.Question-input{
-    font-size: 18px;
-    font-weight: 500;
-    padding:10px;
-    border:0;
-    border-bottom: 1px solid grey;
-    width:35vw;
-    
-}
-.Question-options{
-    display: flex;
-    justify-content: flex-end;
-    margin-top:10px;
-    box-sizing: border-box;
-}

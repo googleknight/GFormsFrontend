@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Home from './components/Home/Home';
 import FormCreate from './components/FormCreate/FormCreate';
 import FormFill from './components/FormFill/FormFill';
+import Responses from './components/Responses/Responses';
 import './App.css';
 
 class App extends Component {
@@ -12,11 +13,35 @@ class App extends Component {
       data: [],
     };
   }
+
+  getResponses=(formName) => {
+    if (formName.length !== 0) {
+      fetch(`/responses?formName=${formName}`, {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json; charset=utf-8',
+        },
+      })
+        .then(response => response.json())
+        .then((responseObj) => {
+          this.setState({
+            data: { formName, data: responseObj.data },
+            currentPage: 'Responses',
+          });
+        });
+    }
+  }
   goToFormCreate=() => {
     this.setState({
       currentPage: 'FormCreate',
     });
   }
+  goToHome=() => {
+    this.setState({
+      currentPage: 'FirstPage',
+    });
+  }
+
   submitResponse=(formName, responses) => {
     if (formName.length !== 0 && responses.length !== 0) {
       fetch('/forms/submit', {
@@ -74,14 +99,21 @@ class App extends Component {
       page = (<Home
         onClick={() => this.goToFormCreate()}
         submitForm={this.submitForm}
+        getResponses={this.getResponses}
         data={this.state.data}
       />);
     } else if (this.state.currentPage === 'FormCreate') {
       page = (<FormCreate onClick={this.createForm} />);
     } else if (this.state.currentPage === 'FormFill') {
-      page = (<FormFill data={this.state.data} submitResponse={this.submitResponse} />);
+      page = (<FormFill
+        data={this.state.data}
+        submitResponse={this.submitResponse}
+      />);
     } else if (this.state.currentPage === 'Responses') {
-      page = (<Responses data={this.state.data} submitResponse={this.submitResponse} />);
+      page = (<Responses
+        data={this.state.data}
+        onClick={() => this.goToHome()}
+      />);
     }
     return (
       <div className="App">

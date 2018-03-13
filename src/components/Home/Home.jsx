@@ -31,7 +31,7 @@ class Home extends Component {
   }
 
   render() {
-    const forms = this.state.data.map(form => (
+    const forms = this.state.data.map((form, index) => (
       <div className="Home-Form-Container" key={rand.generate(5)}>
         <button
           className="Home-Form-button"
@@ -39,7 +39,15 @@ class Home extends Component {
           onClick={() => this.props.submitForm(form.DISTINCT)}
         >{form.DISTINCT}
         </button>
-        <p className="Home-Form-text">RESPONSES</p>
+        <div
+          tabIndex={index}
+          role="button"
+          onKeyPress={() => this.props.getResponses(form.DISTINCT)}
+          className="Home-Form-text"
+          onClick={() => this.props.getResponses(form.DISTINCT)}
+        >
+         RESPONSES
+        </div>
       </div>
     ));
     return (

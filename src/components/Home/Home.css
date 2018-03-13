@@ -49,4 +49,9 @@
 .Home-Form-text{
     margin-right:6vh;
     font-size:13px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+.Home-body-heading{
+    font-weight: bold;
 }

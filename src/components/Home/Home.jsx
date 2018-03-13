@@ -30,12 +30,14 @@ class Home extends Component {
       });
   }
 
+
   render() {
     const forms = this.state.data.map(form => (
       <div className="Home-Form-Container" key={rand.generate(5)}>
         <button
           className="Home-Form-button"
           type="button"
+          onClick={() => this.editForm(form.DISTINCT)}
         >{form.DISTINCT}
         </button>
         <p className="Home-Form-text">RESPONSES</p>
@@ -46,6 +48,7 @@ class Home extends Component {
         <div className="Home-header">
           <button
             className="Home-create-button"
+            onClick={() => this.props.onClick()}
             type="button"
           >+
           </button>

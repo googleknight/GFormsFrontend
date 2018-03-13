@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './FormCreate.css';
 
-const rand = require('random-key');
+// const rand = require('random-key');
 
 
 class FormCreate extends Component {
@@ -12,31 +12,70 @@ class FormCreate extends Component {
       formName: '',
     };
   }
+
+
+  onRequiredChange=(event, index) => {
+    const { questions } = this.state;
+    const tempQuestion = questions[index];
+    questions[index] = {
+      question: tempQuestion.question,
+      type: tempQuestion.type,
+      required: event.target.checked,
+    };
+    this.setState({ questions });
+  }
+
+  onOptionChange=(event, index) => {
+    const { questions } = this.state;
+    const tempQuestion = questions[index];
+    questions[index] = {
+      question: tempQuestion.question,
+      type: event.target.value,
+      required: tempQuestion.required,
+    };
+    this.setState({ questions });
+  }
   getFormName=(event) => {
     this.setState({ formName: event.target.value });
+  }
+  getQuestion=(event, index) => {
+    const { questions } = this.state;
+    const tempQuestion = questions[index];
+    questions[index] = {
+      question: event.target.value,
+      type: tempQuestion.type,
+      required: tempQuestion.required,
+    };
+    this.setState({ questions });
+  }
+  deleteQuestion=(index) => {
+    let { questions } = this.state;
+    questions = questions.filter((item, idx) => idx !== index);
+    this.setState({ questions });
   }
   addQuestion=() => {
     const { questions } = this.state;
     const questionDetail = {
       question: '',
-      type: '',
-      required: '',
+      type: 'Date',
+      required: false,
     };
     questions.push(questionDetail);
     this.setState({ questions });
-    console.log(questions);
   }
-  generateComponent=() => this.state.questions.map(questionDetail =>
+  generateComponent=() => this.state.questions.map((questionDetail, index) =>
     (
-      <div className="Question" key={rand.generate(5)}>
-        <div className="Question-input-area"><input
-          className="Question-input"
-          type="input"
-          value={questionDetail.question}
-        />
+      <div className="Question" key={index} >
+        <div className="Question-input-area">
+          <input
+            className="Question-input"
+            type="input"
+            onChange={event => this.getQuestion(event, index)}
+            value={questionDetail.question}
+          />
           <div className="styled" >
-            <select>
-              <option>Date</option>
+            <select onChange={event => this.onOptionChange(event, index)}>
+              <option checked>Date</option>
               <option>Short answer</option>
               <option>Paragraph</option>
             </select>
@@ -46,21 +85,27 @@ class FormCreate extends Component {
           <hr />
           <div className="Question-options">
             <div
-              tabIndex={rand.generate(5)}
+              tabIndex={index}
               role="button"
-              onKeyPress={() => this.deleteQuestion()}
+              onKeyPress={() => this.deleteQuestion(index)}
               className="Question-delete-button"
-              onClick={() => this.deleteQuestion()}
+              onClick={() => this.deleteQuestion(index)}
             >
               <i className="material-icons">delete</i>
             </div>
-            <input type="checkbox" name="required" value="required" />Required
+            <input
+              type="checkbox"
+              name="required"
+              value="required"
+              onChange={event => this.onRequiredChange(event, index)}
+            />Required
           </div>
         </div>
       </div>
     ))
 
   render() {
+    console.log(this.state);
     const renderme = this.generateComponent();
     return (
       <div className="FormCreate">
@@ -69,7 +114,7 @@ class FormCreate extends Component {
           <div className="FormCreate-Main-Box">
             <button
               className="FormCreate-submit-button"
-              onClick={() => this.props.onClick()}
+              onClick={() => this.props.onClick(this.state.formName, this.state.questions)}
               type="button"
             >SUBMIT
             </button>

@@ -1,7 +1,7 @@
 .FormFill{
-    display:flex;
+    overflow-y: scroll;
+    display: flex;
     flex-direction: column;
-    height:100vh;
 }
 .FormFill-header{
     background-color:#663bb7;
@@ -14,42 +14,42 @@
 .FormFill-body{
     background-color:#eee8f7;
     box-sizing:border-box;
-    height:82vh;
+    height:200vh;
     padding:4vh;
     display:flex;
+    z-index: 1;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
 
 }
-.FormFill-create-button{
-    border-radius: 50%;
-    font-size:24px;
-    height: 40px;
-    padding:0 12px 0 12px;
-    color:white;
-    background-color: #663bb7;
-}
 .FormFill-Main-Box{
-    box-shadow:0.5px solid black;
-    position: fixed;
+    
+    position: absolute;
     display:flex;
+    top:10vh;
     flex-direction: column;
     width:60vw;
-    height:25vh;
-    position: relative;
-    bottom: 10vh;
+    z-index: 2;
     background-color: white;
     justify-content:space-around;
     box-sizing: border-box;
+    padding:2vh;
     margin:0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.FormFill-title{
+    font-weight:500;
+    font-size: 28px;
+    box-sizing: border-box;
 }
 .Formfill-submit-button{
     width:1vh;
     align-self: flex-start;
-    margin-right:7.2vw;
+    margin:3.5vh 7.2vw 0 0;
     border: 0;
     color:#663bb7;
-    font-size: 22px;
+    font-size: 17px;
     font-weight: 600;
 }
 .FormFill-form-input{
@@ -64,36 +64,4 @@
 .FormFill-button-container{
     align-self: flex-end;
     margin:2vh;
-}
-.Question{
-    background-color: white;
-    border:0.5px grey solid;
-    display:flex;
-   flex-direction: column;
-    width:60vw;
-    height:25vh;
-    justify-content: space-between;
-    padding:2vh 2vh 2vh 4vh;
-    box-sizing: border-box;
-
-}
-.Question-input-area{
-    display:flex;
-    justify-content: space-between;
-}
-
-.Question-input{
-    font-size: 18px;
-    font-weight: 500;
-    padding:10px;
-    border:0;
-    border-bottom: 1px solid grey;
-    width:35vw;
-    
-}
-.Question-options{
-    display: flex;
-    justify-content: flex-end;
-    margin-top:10px;
-    box-sizing: border-box;
 }

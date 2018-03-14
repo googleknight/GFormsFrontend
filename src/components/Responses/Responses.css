@@ -22,7 +22,6 @@
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
-
 }
  
 .Responses-Main-Box{
@@ -38,7 +37,7 @@
     box-sizing: border-box;
     padding:2vh;
     margin:0;
-    
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 .Responses-title{
     font-weight:600;
@@ -47,7 +46,7 @@
 }
 
 .Question-statement{
-    font-weight:550;
+    font-weight:450;
     font-size: 22px;
     margin:4vh 0 1.5vh 0;
 }

@@ -86,12 +86,12 @@ class App extends Component {
         body: JSON.stringify({ formName, questions }),
       })
         .then(response => response.json())
-        .then((responseObj) => {
+        .then(() => {
           this.setState({
             currentPage: 'FirstPage',
           });
         });
-    }
+    } else { alert('Please enter the required details to create a form.'); }
   }
   render() {
     let page;
@@ -100,7 +100,6 @@ class App extends Component {
         onClick={() => this.goToFormCreate()}
         submitForm={this.submitForm}
         getResponses={this.getResponses}
-        data={this.state.data}
       />);
     } else if (this.state.currentPage === 'FormCreate') {
       page = (<FormCreate onClick={this.createForm} />);

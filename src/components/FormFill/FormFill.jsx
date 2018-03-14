@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './FormFill.css';
-
-// const rand = require('random-key');
-
 
 class FormFill extends Component {
   constructor(props) {
@@ -38,6 +36,7 @@ getInputArea=(type, required, index, question) => {
       className="Question-input"
       type={this.getInputType(type)}
       required={required}
+      placeholder="Your answer"
       onChange={event => this.getResponse(event, index, question)}
     />);
   }
@@ -45,7 +44,8 @@ getInputArea=(type, required, index, question) => {
     className="Question-input"
     required={required}
     rows="2"
-    column="60"
+    column="220"
+    placeholder="Your answer"
     onChange={event => this.getResponse(event, index, question)}
   />);
 }
@@ -59,7 +59,6 @@ validate=() => {
   });
   if (flag === 1) { this.props.submitResponse(this.state.formName, this.state.responses); }
 }
-// TODO write a validate method to validate req fields
 render() {
   const questions = this.props.data.data.map((question, index) => (
     <div className="Question-container" key={index}>
@@ -92,5 +91,22 @@ render() {
   );
 }
 }
+FormFill.propTypes = {
+  data: PropTypes.shape({
+    formName: PropTypes.string,
+    data: PropTypes.arrayOf(PropTypes.shape({
+      question: PropTypes.string,
+      type: PropTypes.string,
+      required: PropTypes.string,
+    })),
+  }),
+  submitResponse: PropTypes.func,
+};
+
+FormFill.defaultProps = {
+  data: null,
+  submitResponse: () => null,
+};
+
 
 export default FormFill;

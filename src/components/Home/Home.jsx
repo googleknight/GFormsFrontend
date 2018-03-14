@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Home.css';
 
 const rand = require('random-key');
@@ -78,5 +79,19 @@ class Home extends Component {
     );
   }
 }
+
+
+Home.propTypes = {
+  onClick: PropTypes.func,
+  submitForm: PropTypes.func,
+  getResponses: PropTypes.func,
+};
+
+Home.defaultProps = {
+  onClick: () => null,
+  submitForm: () => null,
+  getResponses: () => null,
+};
+
 
 export default Home;

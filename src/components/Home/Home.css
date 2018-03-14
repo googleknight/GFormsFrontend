@@ -23,6 +23,7 @@
     height: 40px;
     padding:0 12px 0 12px;
     color:#663bb7;
+    cursor: pointer;
 }
 .Home-create-text{
     color:white;
@@ -44,7 +45,8 @@
     width:24vh;
     margin:4vh 7vh 4vh 0;
     font-size:17px;
-    background-color: white;
+    background: url('./white.png');
+    border:0.2px grey solid;
 }
 .Home-Form-text{
     margin-right:6vh;

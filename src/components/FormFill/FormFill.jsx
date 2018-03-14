@@ -49,6 +49,10 @@ getInputArea=(type, required, index, question) => {
     onChange={event => this.getResponse(event, index, question)}
   />);
 }
+getQuestionStatement=(question, required) => {
+  if (required) { return `${question} *`; }
+  return question;
+}
 validate=() => {
   let flag = 1;
   this.props.data.data.forEach((question, index) => {
@@ -59,11 +63,12 @@ validate=() => {
   });
   if (flag === 1) { this.props.submitResponse(this.state.formName, this.state.responses); }
 }
+
 render() {
   const questions = this.props.data.data.map((question, index) => (
     <div className="Question-container" key={index}>
       <p className="Question-statement">
-        {question.question}
+        {this.getQuestionStatement(question.question, question.required)}
       </p>
       {this.getInputArea(question.type, question.required, index, question.question)}
     </div>

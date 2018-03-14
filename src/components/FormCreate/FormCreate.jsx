@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './FormCreate.css';
 
 // const rand = require('random-key');
@@ -137,7 +138,7 @@ class FormCreate extends Component {
               </button>
             </div>
           </div>
-          <div>
+          <div className="Questions-container">
             {renderme}
           </div>
         </div>
@@ -146,4 +147,11 @@ class FormCreate extends Component {
   }
 }
 
+FormCreate.propTypes = {
+  onClick: PropTypes.func,
+};
+
+FormCreate.defaultProps = {
+  onClick: () => null,
+};
 export default FormCreate;

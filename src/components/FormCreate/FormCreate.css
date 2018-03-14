@@ -27,6 +27,7 @@
 .FormCreate-create-button{
     border-radius: 50%;
     font-size:24px;
+    font-weight: 600;
     height: 40px;
     padding:0 12px 0 12px;
     color:white;
@@ -110,4 +111,7 @@
 }
 .Required-label{
     margin: 6px 0 0 12px;
+}
+.Questions-container{
+    margin-top:9vh;
 }

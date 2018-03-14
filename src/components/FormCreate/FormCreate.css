@@ -44,7 +44,6 @@
     justify-content:space-around;
     box-sizing: border-box;
     padding:2vh;
-    margin:0 0 4vh 0;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 .FormCreate-submit-button{
@@ -71,15 +70,15 @@
 }
 .Question{
     background-color: white;
-    border:2px solid black;
     display:flex;
+    position: relative;
     flex-direction: column;
     width:60vw;
     height:25vh;
     justify-content: space-between;
     padding:2vh 2vh 2vh 4vh;
     box-sizing: border-box;
-
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 .Question-input-area{
     display:flex;
@@ -104,4 +103,11 @@
 }
 .Question-delete-button{
     cursor: pointer;
+    margin-right: 15px;
+}
+.Question-options-input{
+    margin:10px 0px 2px 0;
+}
+.Required-label{
+    margin: 6px 0 0 12px;
 }

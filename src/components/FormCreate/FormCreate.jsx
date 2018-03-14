@@ -70,8 +70,8 @@ class FormCreate extends Component {
           <input
             className="Question-input"
             type="input"
+            defaultValue="Untitled Question"
             onChange={event => this.getQuestion(event, index)}
-            value={questionDetail.question}
           />
           <div className="styled" >
             <select onChange={event => this.onOptionChange(event, index)}>
@@ -93,12 +93,17 @@ class FormCreate extends Component {
             >
               <i className="material-icons">delete</i>
             </div>
+
             <input
+              className="Question-options-input"
               type="checkbox"
               name="required"
               value="required"
               onChange={event => this.onRequiredChange(event, index)}
-            />Required
+            />
+            <label htmlFor="Required-option" className="Required-label">
+            Required
+            </label>
           </div>
         </div>
       </div>
@@ -120,6 +125,7 @@ class FormCreate extends Component {
             <input
               className="FormCreate-form-input"
               type="input"
+              defaultValue="Untitled Form"
               onChange={event => this.getFormName(event)}
             />
             <div className="FormCreate-button-container" >
